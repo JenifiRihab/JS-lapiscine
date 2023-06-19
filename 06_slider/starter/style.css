@@ -56,7 +56,7 @@
     height: var(--img-height);
     object-fit: fill;
     position: absolute;
-    transition-property: left;
+    transition-property: transform;
     transition-duration: 3s;
     user-select: none;
 }

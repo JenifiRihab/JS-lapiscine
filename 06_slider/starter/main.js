@@ -6,94 +6,128 @@ const slidesData = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const slidesData = [
-//     { title: "VILLAGE", description: "Lorem ipsum dolor sit amet" },
-//     { title: "VIGNE", description: "Consectetur adipiscing elit" },
-//     { title: "CHAMPS", description: "Sed do eiusmod tempor incididunt" },
-// ]
-
-// const btns = document.querySelectorAll(".slider-btn")
 // const frame = document.querySelector(".slider-frame")
+// const slides = document.querySelectorAll(".slider-img")
 // const title = document.querySelector(".slider-title")
 // const legend = document.querySelector(".slider-legend")
-// const slides = document.querySelectorAll(".slider-img")
-
-// let slideIndex = 0;
-// let imgWidth = 76.4;
+// const btns = document.querySelectorAll(".slider-btn")
 
 
-// resetSlider();
-// setListeners();
 
-// function resetSlider() {
-//     for (let i = 0; i < slides.length; i++) {
-//         const slide = slides[i];
-//         slide.style.left = imgWidth * i + 'vw';
+// solution 1:
+
+// const btns = document.querySelectorAll(".slider-btn");
+// const imgs = document.querySelectorAll(".slider-img");
+
+// let slideIndex;
+
+// init();
+
+// btns.forEach((e, index) => {
+//     e.leftOrRight = index;
+//     e.addEventListener("click", onClickBtn);
+// });
+
+// function onClickBtn(e) {
+//     if (e.currentTarget.leftOrRight === 0) {
+//         slideIndex--;
+//     } else {
+//         slideIndex++;
 //     }
-//     btns[0].style.opacity = '0.5';
+
+//     btns[0].style.opacity = btns[1].style.opacity = 1
+//     btns[0].style.pointerEvents = btns[1].style.pointerEvents = 'auto'
+
+//     if (slideIndex <= 0) {
+//         slideIndex = 0;
+//         btns[0].style.opacity = 0.5
+//         btns[0].style.pointerEvents = 'none'
+//     } else if (slideIndex >= imgs.length - 1) {
+//         slideIndex = imgs.length - 1;
+//         btns[1].style.opacity = 0.5
+//         btns[1].style.pointerEvents = 'none'
+//     }
+
+//     displayImages(slideIndex)
 // }
 
-// function setListeners() {
-//     for (let i = 0; i < btns.length; i++) {
-//         const btn = btns[i];
-
-//         btn.addEventListener("click", (e) => {
-//             let step = e.currentTarget.classList.contains('slider-btn-right') ? 1 : -1
-//             slideIndex += step;
-
-//             if (slideIndex < 0) {
-//                 slideIndex = 0;
-//             } else if (slideIndex > slides.length - 1) {
-//                 slideIndex = slides.length - 1;
-//             }
-
-//             btns[0].style.opacity = "1";
-//             btns[1].style.opacity = "1";
-
-//             if (slideIndex < 1) {
-//                 btns[0].style.opacity = "0.5";
-//             } else if (slideIndex > slides.length - 2) {
-//                 btns[1].style.opacity = "0.5";
-//             }
-
-//             for (let j = 0; j < slides.length; j++) {
-//                 const slide = slides[j];
-//                 slide.style.left = imgWidth * (j - slideIndex) + 'vw';
-//             }
-
-//             title.textContent = slidesData[slideIndex].title
-//             legend.textContent = slidesData[slideIndex].description
-//         })
-//     }
+// function displayImages(slideI) {
+//     imgs.forEach((img, indexImg) =>{
+//         img.style.transform = `translatex(${(indexImg - slideI) * 100}%)`
+//     })
 // }
 
+// function init() {
+//     slideIndex = 0;
+//     btns[0].style.opacity = 0.5
+//     btns[0].style.pointerEvents = 'none'
+//     displayImages(slideIndex)
+// }
+
+// solution 2:
+
+const btns = document.querySelectorAll(".slider-btn");
+const imgs = document.querySelectorAll(".slider-img");
+
+let slideIndex;
+
+init();
+
+btns.forEach((e, index) => {
+    e.leftOrRight = index;
+    e.addEventListener("click", onClickBtn);
+    e.addEventListener("mousedown", onUpBtn);
+    e.addEventListener("mousep", onDownBtn);
+});
+
+function onDownBtn(e) {
+    console.log('down')
+}
+
+function onUpBtn(e) {
+    console.log('up')
+}
+
+
+function onClickBtn(e) {
+    console.log('click')
+}
 
 
 
+function onClickBtn(e) {
+    console.log('click')
+    if (e.currentTarget.leftOrRight === 0) {
+        slideIndex--;
+    } else {
+        slideIndex++;
+    }
 
+    btns[0].style.opacity = btns[1].style.opacity = 1
+    btns[0].style.pointerEvents = btns[1].style.pointerEvents = 'auto'
+
+    if (slideIndex <= 0) {
+        slideIndex = 0;
+        btns[0].style.opacity = 0.5
+        btns[0].style.pointerEvents = 'none'
+    } else if (slideIndex >= imgs.length - 1) {
+        slideIndex = imgs.length - 1;
+        btns[1].style.opacity = 0.5
+        btns[1].style.pointerEvents = 'none'
+    }
+
+    displayImages(slideIndex)
+}
+
+function displayImages(slideI) {
+    imgs.forEach((img, indexImg) =>{
+        img.style.transform = `translatex(${(indexImg - slideI) * 100}%)`
+    })
+}
+
+function init() {
+    slideIndex = 0;
+    btns[0].style.opacity = 0.5
+    btns[0].style.pointerEvents = 'none'
+    displayImages(slideIndex)
+}
