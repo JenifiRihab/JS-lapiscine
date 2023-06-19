@@ -107,3 +107,18 @@
     margin-right: 10px;
     user-select: none;
 }
+
+.dots-container {
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: var(--deep-blue);
+    margin: 5px;
+    cursor: pointer;
+}
