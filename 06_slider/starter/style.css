@@ -1,10 +1,14 @@
 :root {
-    --deep-blue: #122451;
-    --transparent-grey: rgba(22,22,21,0.79);
-    --white: rgb(249, 249, 249);
-
+    --deep-blue: #551785;
+    --transparent-grey: rgba(54, 107, 108, 0.674);
+    --white: rgb(201, 206, 48);
+    font-size: xx-large ;
+   
+    background: linear-gradient(to right, rgb(174, 211, 209),rgb(159, 132, 203) );
     --img-width: 76.4vw;
     --img-height: 75vh;
+    border:10px solid rgb(130, 187, 227) ;
+  
 }
 
 *,
@@ -27,7 +31,7 @@
 }
 
 .slider-frame {
-    margin: 33px auto;
+    margin: 33px auto 0;
     width: var(--img-width);
     height: var(--img-height);
 }
@@ -56,8 +60,6 @@
     height: var(--img-height);
     object-fit: fill;
     position: absolute;
-    transition-property: transform;
-    transition-duration: 3s;
     user-select: none;
 }
 
@@ -89,6 +91,14 @@
     cursor: pointer;
     padding: 30px;
     transform: translate(50%, -10%);
+}
+
+.btn-effect {
+    transform-origin: center center;
+}
+
+.btn-effect:active {
+    scale: 0.9;
 }
 
 .slider-legend-container {
