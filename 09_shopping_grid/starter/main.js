@@ -23,7 +23,10 @@ async function fetchData() {
     }
 }
 
+function displayData(data, categories = []) {
+    orderList(data);
 
+}
 
 
 

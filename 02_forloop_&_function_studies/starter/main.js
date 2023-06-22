@@ -507,7 +507,7 @@ const pizzas = [
 
 const result = getPizzasNames(`jambon`, pizzas)
 console.log (result);
-3
+
 function getPizzasNames(nameArg, tableau){
     let pizzasNames = [];
 
